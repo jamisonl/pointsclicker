@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="manage.css"/>
+  </head>
+
+  <div id="settings-modal" class="modal">
+    <div class="content-modal">
+      <span class="close-modal">&times;</span>
+      <input type="checkbox" class="button hide-points">Hide points</input>
+    </div>
+  </div>
+<body>
+  <div id="popup-content" class="content-main">
+    <div id="points" class="button point"></div>
+    <div class="button reload">Clear</div>
+    <!-- <div id="settings-button" class="button settings" style="display: hidden;">&#9881;</div> -->
+  </div>
+  <div id="error-content" class="hidden">
+    <p>Can't load on this web page.</p><p>Make sure you are on twitch.tv!</p>
+  </div>
+  <script id="script" defer src="manageRewardClicker.js"></script>
+</body>
+</html>

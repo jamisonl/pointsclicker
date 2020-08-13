@@ -1,0 +1,91 @@
+html, body {
+  width: 15em;
+  height: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #18181b;
+  overflow-wrap: break-word;
+}
+
+.hidden {
+  display: none;
+}
+
+.button {
+  margin: 3% auto;
+  padding: 4px;
+  text-align: center;
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.point:hover {
+  background-color: #9147ff;
+}
+
+.point {
+  background-color: #9147ff;
+  border-radius: 10px;
+}
+
+.reload {
+  background-color: #9147ff;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.reload:hover {
+  background-color: #bf94ff;
+}
+
+#settings-button {
+  text-align: center;
+  margin: 0 auto;
+  background-color: #9147ff;
+  border-radius: 5px;
+  border: 1px #9147ff solid;
+  cursor: pointer;
+  width: 2em;
+}
+
+#settings-button:hover {
+  background-color: #bf94ff;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: auto; */
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.content-modal {
+  margin: 1% auto;
+  background-color: #000;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.close-modal {
+  color: #efeff1;
+  float: right;
+  margin-right: .2em;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
