@@ -1,0 +1,16 @@
+{
+  "name": "pointsclicker",
+  "version": "0.2.1",
+  "description": "",
+  "scripts": {
+    "package": "node ./build.js"
+  },
+  "keywords": [],
+  "author": "JL",
+  "license": "MIT",
+  "dependencies": {
+    "adm-zip": "^0.4.16"
+  }
+}
+
+
