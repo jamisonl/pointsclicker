@@ -34,18 +34,13 @@ let parentNodeClass = "community-points-summary";
 const config = { childList: true, subtree: true };
 let parentNode = document.getElementsByClassName(parentNodeClass)[0];
 const observer = new MutationObserver((mutationsList) => {
-  let runSearch = false;
   for (let mutation of mutationsList) {
     if (
       mutation.type === "childList" &&
       mutation.target.className === "tw-full-height tw-relative tw-z-above"
     ) {
-      runSearch = true;
+      clicker();
     }
-  }
-  if (runSearch && typeof parentNode === "object") {
-    runSearch = false;
-    clicker();
   }
 });
 
