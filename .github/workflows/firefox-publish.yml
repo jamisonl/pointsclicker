@@ -2,8 +2,6 @@ name: Pointsclicker Package
 
 on:
   push:
-    branches:
-      - master
     tags:
       - release
 jobs:
