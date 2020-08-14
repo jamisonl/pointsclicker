@@ -1,0 +1,29 @@
+name: Pointsclicker Package
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - release
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm i
+      - run: npm run package
+      - name: Firefox Addon Action
+        uses: trmcnvn/firefox-addon@v1
+        with:
+          uuid: '{5efbc61c-d90b-40ff-bb3e-220570ef2acf}'
+          xpi: pointsclicker.zip
+          manifest: manifest.json
+          api-key: ${{ secrets.FIREFOX_API_KEY }}
+          api-secret: ${{ secrets.FIREFOX_API_SECRET }}
+
+
+
