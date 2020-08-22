@@ -45,30 +45,18 @@ const observer = new MutationObserver((mutationsList) => {
 });
 
 let currentTitle = document.getElementsByTagName("title")[0];
-let currentTitleNode = document.querySelector(
-  ".tw-c-text-inherit.tw-font-size-5.tw-white-space-nowrap"
-);
-let currentTitleText = document.URL.split("/")[
-  document.URL.split("/").length - 1
-];
 const titleObsConfig = { attributes: true, childList: true, subtree: true };
 const titleObserver = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
     if (mutation.type === "childList") {
-      const newTitleText = document.URL.split("/")[
-        document.URL.split("/").length - 1
-      ];
-      if (newTitleText !== currentTitleText) {
-        currentTitleText = newTitleText;
-        //wait for DOM tree to finish..
-        setTimeout(() => {
-          let parentNodeClass = "community-points-summary";
-          let parentNode = document.getElementsByClassName(parentNodeClass)[0];
-          clicker();
-          observer.disconnect();
-          observer.observe(parentNode, config);
-        }, 3000);
-      }
+      //wait for DOM tree to finish..
+      setTimeout(() => {
+        let parentNodeClass = "community-points-summary";
+        let parentNode = document.getElementsByClassName(parentNodeClass)[0];
+        clicker();
+        observer.disconnect();
+        observer.observe(parentNode, config);
+      }, 3000);
     }
   }
 });
