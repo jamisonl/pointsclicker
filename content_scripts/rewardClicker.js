@@ -3,7 +3,9 @@
     Else update points object, and send message to manageRewardClicker to retrieve points.
   */
 const handlePointsUpdate = async (pointsNum) => {
-  let title = document.URL.split("/")[document.URL.split("/").length - 1];
+  let title = document.URL.split("/")[document.URL.split("/").length - 1].split(
+    "?"
+  )[0];
   const storedPoints = await browser.storage.local.get("totals");
   if (!!Object.keys(storedPoints).length) {
     if (!!storedPoints.totals[`${title}`]) {
