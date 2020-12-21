@@ -23,9 +23,7 @@ const handlePointsUpdate = async (pointsNum) => {
 };
 
 const clicker = () => {
-  let button = document.body.querySelector(
-    ".tw-button.tw-button--success.tw-interactive"
-  );
+  let button = document.body.querySelector(".tw-button, .tw-button--success");
   if (!!button) {
     button.click();
     handlePointsUpdate(50);
@@ -65,4 +63,4 @@ const titleObserver = new MutationObserver((mutationsList) => {
 
 titleObserver.observe(currentTitle, titleObsConfig);
 observer.observe(parentNode, config);
-clicker();
+setTimeout(() => clicker(), 3000);
