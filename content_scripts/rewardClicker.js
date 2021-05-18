@@ -1,8 +1,7 @@
 const pointsParentNode = ".community-points-summary";
 const handlePointsUpdate = async (pointsNum) => {
-  let title = document.URL.split("/")[document.URL.split("/").length - 1].split(
-    "?"
-  )[0];
+  let title =
+    document.URL.split("/")[document.URL.split("/").length - 1].split("?")[0];
   const storedPoints = await browser.storage.local.get("totals");
   if (!!Object.keys(storedPoints).length) {
     if (!!storedPoints.totals[`${title}`]) {
@@ -20,7 +19,7 @@ const handlePointsUpdate = async (pointsNum) => {
 };
 
 const clicker = () => {
-  let button = document.body.querySelector(".tw-button, .tw-button--success");
+  let button = document.body.querySelector(".ScCoreButtonSuccess-sc-1qn4ixc-5");
   const pointsEvent = (event) => {
     setTimeout(() => {
       handlePointsUpdate(getPointsCount());
@@ -45,7 +44,7 @@ const getPointsCount = () => {
 const classListSearch = (target) => {
   if (
     target.classList &&
-    [...target.classList].includes("tw-button--success")
+    [...target.classList].includes("ScCoreButtonSuccess-sc-1qn4ixc-5")
   ) {
     return clicker();
   }
@@ -61,7 +60,7 @@ const obsConfig = { childList: true, subtree: true };
 const observer = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
     if (mutation.type === "childList") {
-      classListSearch(mutation.target);
+      classListSearch(mutation.target.children[0]);
     }
   }
 });
