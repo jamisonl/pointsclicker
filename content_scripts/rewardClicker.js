@@ -19,7 +19,7 @@ const handlePointsUpdate = async (pointsNum) => {
 };
 
 const clicker = () => {
-  let button = document.body.querySelector(".ScCoreButtonSuccess-sc-1qn4ixc-5");
+  let button = document.body.querySelector("[aria-label*='Claim Bonus']");
   const pointsEvent = (event) => {
     setTimeout(() => {
       handlePointsUpdate(getPointsCount());
@@ -43,8 +43,9 @@ const getPointsCount = () => {
  */
 const classListSearch = (target) => {
   if (
-    target.classList &&
-    [...target.classList].includes("ScCoreButtonSuccess-sc-1qn4ixc-5")
+    target.attributes && 
+    !![...target.attributes]
+    .filter(e => e.name === 'aria-label' && e.value === 'Claim Bonus').length
   ) {
     return clicker();
   }
@@ -59,9 +60,7 @@ const classListSearch = (target) => {
 const obsConfig = { childList: true, subtree: true };
 const observer = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
-    if (mutation.type === "childList") {
-      classListSearch(mutation.target.children[0]);
-    }
+    classListSearch(mutation.target.children[0]);
   }
 });
 
@@ -80,13 +79,22 @@ const titleObserver = new MutationObserver((mutationsList) => {
   }
 });
 
-try {
+const init = () => {
   clicker();
   let currentTitle = document.getElementsByTagName("title")[0];
-  let parentNode = document.querySelector(pointsParentNode);
   titleObserver.observe(currentTitle, titleObsConfig);
-  observer.observe(parentNode, obsConfig);
-} catch (e) {
-  {
+  let parentNode = document.querySelector(pointsParentNode);
+  if (!parentNode) {
+    setTimeout(() => {
+      init();
+    }, 1000);
+  } else {
+    observer.observe(parentNode, obsConfig);
   }
+}
+
+try {
+  init();
+} catch (e) {
+  console.log(e);
 }

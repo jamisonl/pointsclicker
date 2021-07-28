@@ -1,6 +1,6 @@
 {
   "name": "pointsclicker",
-  "version": "0.2.6",
+  "version": "0.2.8",
   "description": "",
   "scripts": {
     "package": "node ./build.js"
@@ -12,5 +12,3 @@
     "adm-zip": "^0.4.16"
   }
 }
-
-
